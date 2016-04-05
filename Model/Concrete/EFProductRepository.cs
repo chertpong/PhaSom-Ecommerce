@@ -8,7 +8,7 @@ using Model.Entity;
 
 namespace Model.Concrete
 {
-    class EFProductRepository : IProductRepository
+    public class EFProductRepository : IProductRepository
     {
         private EFDbContext context = new EFDbContext();
         public IQueryable<Product> CreateProduct
