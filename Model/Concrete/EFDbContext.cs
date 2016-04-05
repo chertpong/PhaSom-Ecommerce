@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model.Concrete
 {
-    class EFDbContext : DbContext
+   public class EFDbContext : DbContext
     {
         public DbSet<Product> CreateProduct { get; set; }
         public DbSet<Product> ReadProduct { get; set; }
