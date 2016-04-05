@@ -16,8 +16,23 @@ namespace Web.Controllers
             this.repository = productRepository;
         }
 
-        public ViewResult List(){
+        public ViewResult CreateProduct(){
+            return View(repository.CreateProduct);
+        }
+
+        public ViewResult ReadProduct()
+        {
             return View(repository.ReadProduct);
+        }
+
+        public ViewResult UpdateProduct()
+        {
+            return View(repository.UpdateProduct);
+        }
+
+        public ViewResult DeleteProduct()
+        {
+            return View(repository.DeleteProduct);
         }
     }
 }
