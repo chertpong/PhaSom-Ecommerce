@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace Model.Repository
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
-        IQueryable<Product> Products { get; }
+        IQueryable<Product> CreateProduct { get; }
+        IQueryable<Product> ReadProduct { get; }
+        IQueryable<Product> UpdateProduct { get; }
+        IQueryable<Product> DeleteProduct { get; }
+        
 
     }
 }

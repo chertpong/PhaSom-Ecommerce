@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.Entity
 {
-    class Product
+   public class Product
     {
         private long Id { get; set; }
         private string Name { get; set; }

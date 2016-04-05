@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using Moq;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Web.Infrastructure
         private void AddBindings()
         {             // put bindings here         }
             
+
         }
     }
 }
