@@ -125,6 +125,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{2f95df8c-be01-4408-8aaf-f3690c908135}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{62763059-CB7A-4D60-8F42-9E6282A94373}</Project>
       <Name>Web</Name>
