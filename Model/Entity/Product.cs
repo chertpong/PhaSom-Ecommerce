@@ -8,7 +8,7 @@ namespace Model.Entity
 {
    public class Product
     {
-        private long Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
