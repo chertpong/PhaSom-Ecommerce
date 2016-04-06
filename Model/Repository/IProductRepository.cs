@@ -11,10 +11,10 @@ namespace Model.Repository
     {
         IQueryable<Product> Products { get; }
         IEnumerable<Product> GetAll();
-        Product Get(int id);
-        Product Add(Product product);
-        void Remove(Product product);
-        bool Update(Product product);
+        Product Get(int ProductID);
+        Product Add(Product products);
+        void Remove(int ProductID);
+        bool Update(Product products);
 
 
     }
