@@ -25,9 +25,9 @@ namespace Web.Controllers
             return repository.GetAll();
         }
 
-        public Product GetProduct(int ProductID)
+        public Product GetProduct(int productID)
         {
-            Product product = repository.Get(ProductID);
+            Product product = repository.Get(productID);
             if (product == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
