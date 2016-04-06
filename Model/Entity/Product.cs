@@ -12,11 +12,11 @@ namespace Model.Entity
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
-        private string Thumbnail { get; set; }
-        private List<string> Tags { get; set; }
-        private int Amount { get; set; }
+        public string Thumbnail { get; set; }
+        public List<string> Tags { get; set; }
+        public int Amount { get; set; }
 
-       public Product(long Id , string Name , double Price , string Description , string Thumbnail, List<string> Tags , int Amount)
+       /*public Product(long Id , string Name , double Price , string Description , string Thumbnail, List<string> Tags , int Amount)  //Constructor Method
        {
            this.Id = Id;
            this.Name = Name;
@@ -25,6 +25,6 @@ namespace Model.Entity
            this.Thumbnail = Thumbnail;
            this.Tags = Tags;
            this.Amount = Amount;
-       }
+       }*/
     }
 }
