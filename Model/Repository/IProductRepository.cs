@@ -9,10 +9,8 @@ namespace Model.Repository
 {
     public interface IProductRepository
     {
-        IQueryable<Product> CreateProduct { get; }
-        IQueryable<Product> ReadProduct { get; }
-        IQueryable<Product> UpdateProduct { get; }
-        IQueryable<Product> DeleteProduct { get; }
+        IQueryable<Product> Products { get; }
+        
       
 
     }

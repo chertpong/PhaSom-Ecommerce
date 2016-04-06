@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Model.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Results;
 using System.Web.Mvc;
-using Model.Entity;
-using Model.Repository;
 
 namespace Web.Controllers
 {
@@ -12,30 +12,15 @@ namespace Web.Controllers
     {
         private IProductRepository repository;
 
-        public ProductController(IProductRepository productRepository){
-            this.repository = productRepository;
-        }
-
-     
-
-        public ViewResult CreateProduct(){
-            return View(repository.CreateProduct);
-        }
-
-        public ViewResult ReadProduct()
+        public ProductController(IProductRepository repositoryProduct)
         {
-            return View(repository.ReadProduct);
+            this.repository = repositoryProduct;
         }
 
-        public ViewResult UpdateProduct()
+        // GET: Product
+        public JsonResult ViewJason()
         {
-            return View(repository.UpdateProduct);
+            return Json(repository.Products,JsonRequestBehavior.AllowGet);
         }
-
-        public ViewResult DeleteProduct()
-        {
-            return View(repository.DeleteProduct);
-        }
-
     }
 }
