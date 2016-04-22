@@ -14,10 +14,8 @@ namespace Model.Concrete
         public EFDbContext() : base("EFDbContext")
         {
         }
-        public DbSet<Product> CreateProduct { get; set; }
-        public DbSet<Product> ReadProduct { get; set; }
-        public DbSet<Product> UpdateProduct { get; set; }
-        public DbSet<Product> DeleteProduct { get; set; }
+        public DbSet<Product> Products { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
