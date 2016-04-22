@@ -13,7 +13,7 @@ namespace Model.Repository
         IQueryable<Product> ReadProduct { get; }
         IQueryable<Product> UpdateProduct { get; }
         IQueryable<Product> DeleteProduct { get; }
-        
+      
 
     }
 }

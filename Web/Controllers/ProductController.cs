@@ -16,6 +16,8 @@ namespace Web.Controllers
             this.repository = productRepository;
         }
 
+     
+
         public ViewResult CreateProduct(){
             return View(repository.CreateProduct);
         }
@@ -34,5 +36,6 @@ namespace Web.Controllers
         {
             return View(repository.DeleteProduct);
         }
+
     }
 }
