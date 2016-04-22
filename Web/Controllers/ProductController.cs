@@ -13,21 +13,25 @@ namespace Web.Controllers
 {
     public class ProductController : ApiController
     {
-        private IProductRepository repository;
+        private readonly IProductRepository _repository;
+
+        public ProductController()
+        {
+        }
 
         public ProductController(IProductRepository repositoryProduct)
         {
-            this.repository = repositoryProduct;
+            this._repository = repositoryProduct;
         }
 
         public IEnumerable<Product> GetAllProduct()
         {
-            return repository.GetAll();
+            return _repository.GetAll();
         }
 
         public Product GetProduct(int productID)
         {
-            Product product = repository.Get(productID);
+            var product = _repository.Get(productID);
             if (product == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -37,7 +41,7 @@ namespace Web.Controllers
 
         public Product PostProduct(Product products)
         {
-            Product product = repository.Add(products);
+            var product = _repository.Add(products);
             return product;
         }
     }
