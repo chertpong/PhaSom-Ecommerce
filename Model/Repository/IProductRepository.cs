@@ -1,11 +1,12 @@
 ﻿using Model.Entity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Model.Repository
 {
     public interface IProductRepository
     {
-        List<Product> GetAll();
+        IQueryable<Product> GetAll();
         Product Get(int productId);
         Product Add(Product products);
         void Remove(int productId);
