@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
+using System.Net.Http.Headers;
 
 namespace Web
 {
@@ -12,6 +13,16 @@ namespace Web
     {
         public static void Register(HttpConfiguration config)
         {
+            // Web API configuration and services
+
+            config.Routes.MapHttpRoute(
+                name: "WithActionApi",
+                routeTemplate: "api/{controller}/{action}/{productID}"
+            );
+
+            // Return JSON response by default
+            config.Formatters.JsonFormatter.
+             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

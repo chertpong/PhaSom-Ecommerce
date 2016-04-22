@@ -21,6 +21,7 @@ namespace Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
         }
     }
 }

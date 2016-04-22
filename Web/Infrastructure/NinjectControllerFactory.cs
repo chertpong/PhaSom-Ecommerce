@@ -25,16 +25,17 @@ namespace Web.Infrastructure
         private void AddBindings()
         {
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.ReadProduct).Returns(new List<Product>
+            mock.Setup(m => m.Products).Returns(new List<Product>
             {
-                new Product(1,"Rice",25.00,"Thailand people eat rice berry","12345",new List<string> {"EatType"}, 10),
-                new Product(2,"Shampoo",50.00,"Washing Hair","5463",new List<string> {"Usetype"}, 19),
-                new Product(3,"Coffee",1500.00,"Drink for Energy","1777",new List<string> {"EatType"}, 30),
-                new Product(4,"KraTiam",60.00,"Cooking Material","1777",new List<string> {"EatType"}, 16),
-                new Product(5,"Bag",300.00,"Keep everthing inside","1777",new List<string> {"Usetype"}, 5)
+                new Product { Id = 1,Name = "Rice",Price = 25.00,Description = "Thailand people eat rice berry",Thumbnail = "12345",Tags = new List<string> {"EatType"}, Amount = 10},
+                new Product { Id = 2,Name = "Shampoo",Price = 50.00,Description = "Washing Hair",Thumbnail = "5463",Tags = new List<string> {"Usetype"},Amount = 19},
+                new Product { Id = 3,Name = "Coffee",Price = 1500.00,Description = "Drink for Energy",Thumbnail = "1777",Tags = new List<string> {"EatType"},Amount = 30},
+                new Product { Id = 4,Name = "KraTiam",Price = 60.00,Description = "Cooking Material",Thumbnail = "1788",Tags = new List<string> {"EatType"},Amount = 16},
+                new Product { Id = 5,Name = "Bag",Price = 300.00,Description = "Keep everthing inside",Thumbnail = "1789",Tags = new List<string> {"Usetype"},Amount = 5}
+
             }.AsQueryable());
             
-            ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
+            ninjectKernel.Bind<IProductRepository>().ToConstant(mock.Object);
 
         }
     }
