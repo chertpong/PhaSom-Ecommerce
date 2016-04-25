@@ -10,24 +10,24 @@ namespace Web.Service
 {
     public class ProductService
     {
-        IProductRepository Prepository;
+       private IProductRepository _productRepository;
 
-        public ProductService(IProductRepository x)
+        public ProductService(IProductRepository productRepository)
         {
-            this.Prepository = x;
+            this._productRepository = productRepository;
         }
-        public List<Product> SearchProductbyName(String ProductName) {
+        public List<Product> SearchProductbyName(String productName) {
 
-            List<Product> ProductList = Prepository.GetAll().Where(p => p.Name.Contains(ProductName)).ToList<Product>();
+            List<Product> productList = _productRepository.GetProducts().Where(p => p.Name.Contains(productName)).ToList<Product>();
 
-            return ProductList;
+            return productList;
         }
-        public List<Product> SearchProductByTag(String ProductTag)
+        public List<Product> SearchProductByTag(String productTag)
         {
 
-            List<Product> ProductList = Prepository.GetAll().Where(p => p.Tags.Contains(ProductTag)).ToList<Product>();
+            List<Product> productList = _productRepository.GetProducts().Where(p => p.Tags.Contains(productTag)).ToList<Product>();
 
-            return ProductList;
+            return productList;
         }
     }
 }
