@@ -1,16 +1,16 @@
 ﻿using Model.Entity;
 using Model.Repository;
-using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Web.Service
+namespace Model.Service
 {
     public class ProductService
     {
        private IProductRepository _productRepository;
+
 
         public ProductService(IProductRepository productRepository)
         {
@@ -28,6 +28,11 @@ namespace Web.Service
             List<Product> productList = _productRepository.GetProducts().Where(p => p.Tags.Contains(productTag)).ToList<Product>();
 
             return productList;
+        }
+
+        public IEnumerable<Product> GetAllProducts()
+        {
+            return _productRepository.GetProducts();
         }
     }
 }
