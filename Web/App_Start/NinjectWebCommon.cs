@@ -3,6 +3,7 @@ using Model.Entity;
 using Model.Repository;
 using Moq;
 using Model.Concrete;
+using Model.Service;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
@@ -70,6 +71,7 @@ namespace Web.App_Start
 
 
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<ProductService>().To<ProductService>();
         }        
     }
 }
