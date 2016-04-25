@@ -6,20 +6,24 @@ using System.Net.Http;
 using System.Web.Http;
 using Model.Repository;
 using Model.Entity;
+using Model.Service;
 namespace Web.Controllers
 {
     public class ProductController : ApiController
     {
-        private IProductRepository _repository;
+        
+        
+        private ProductService _productService;
 
-        public ProductController(IProductRepository repository)
+        public ProductController(ProductService productService )
         {
-            this._repository = repository;
+            this._productService = productService;
         }
         // GET: api/Product
-        public IEnumerable<Product> Get()
+        public IEnumerable<Product> GetAll()
         {
-            return _repository.GetProducts();
+           
+            return _productService.GetAllProducts();
         }
 
         // GET: api/Product/5
