@@ -307,7 +307,6 @@
     <Content Include="Views\Product\ReadProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
     <Folder Include="Views\Values\" />
   </ItemGroup>
   <ItemGroup>
