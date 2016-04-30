@@ -1,44 +1,50 @@
-﻿using Model.Entity;
-using Model.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Results;
-using System.Web.Mvc;
-
+using Model.Repository;
+using Model.Entity;
+using Model.Service;
 namespace Web.Controllers
 {
     public class ProductController : ApiController
     {
-        private IProductRepository repository;
+        
+        
+        private ProductService _productService;
 
-        public ProductController(IProductRepository repositoryProduct)
+        public ProductController(ProductService productService )
         {
-            this.repository = repositoryProduct;
+            this._productService = productService;
+        }
+        // GET: api/Product
+        public IEnumerable<Product> GetAll()
+        {
+           
+            return _productService.GetAllProducts();
         }
 
-        public IEnumerable<Product> GetAllProduct()
+        // GET: api/Product/5
+        public string Get(int id)
         {
-            return repository.GetAll();
+            return "value";
         }
 
-        public Product GetProduct(int productID)
+        // POST: api/Product
+        public void Post([FromBody]string value)
         {
-            Product product = repository.Get(productID);
-            if (product == null)
-            {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            }
-            return product;
         }
 
-        public Product PostProduct(Product products)
+        // PUT: api/Product/5
+        public void Put(int id, [FromBody]string value)
         {
-            Product product = repository.Add(products);
-            return product;
+        }
+
+        // DELETE: api/Product/5
+        public void Delete(int id)
+        {
         }
     }
 }

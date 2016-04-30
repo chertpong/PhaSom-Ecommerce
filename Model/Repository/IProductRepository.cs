@@ -1,15 +1,18 @@
-﻿using Model.Entity;
+﻿using System;
+using Model.Entity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Model.Repository
 {
-    public interface IProductRepository
+    public interface IProductRepository : IDisposable
     {
-        List<Product> GetAll();
-        Product Get(int productId);
-        Product Add(Product products);
-        void Remove(int productId);
-        Product Update(Product products);
+        IEnumerable<Product> GetProducts();
+        Product GetProductByID(int productId);
+        void InsertProduct(Product product);
+        void DeleteProduct(int productID);
+        void UpdateProduct(Product product);
+        void Save();
 
 
     }
