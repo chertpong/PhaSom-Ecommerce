@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
+    <Compile Include="Entity\Post.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Migrations\201605020406017_AddProduct.cs" />
     <Compile Include="Migrations\201605020406017_AddProduct.Designer.cs">
