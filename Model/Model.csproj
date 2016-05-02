@@ -52,6 +52,11 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Entity\Product.cs" />
+    <Compile Include="Migrations\201605020406017_AddProduct.cs" />
+    <Compile Include="Migrations\201605020406017_AddProduct.Designer.cs">
+      <DependentUpon>201605020406017_AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Service\ProductService.cs" />
@@ -62,7 +67,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605020406017_AddProduct.resx">
+      <DependentUpon>201605020406017_AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

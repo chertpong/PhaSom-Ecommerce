@@ -9,30 +9,47 @@ namespace Model.Service
 {
     public class ProductService
     {
-       private IProductRepository _productRepository;
 
+        private readonly IProductRepository _productRepository;
 
         public ProductService(IProductRepository productRepository)
         {
             this._productRepository = productRepository;
         }
-        public List<Product> SearchProductbyName(String productName) {
 
-            List<Product> productList = _productRepository.GetProducts().Where(p => p.Name.Contains(productName)).ToList<Product>();
-
-            return productList;
+        public List<Product> SearchProductbyName(string productName) {
+            return _productRepository.GetAll().Where(p => p.Name.Contains(productName)).ToList<Product>();
         }
-        public List<Product> SearchProductByTag(String productTag)
+
+        public List<Product> SearchProductByTag(string productTag)
         {
-
-            List<Product> productList = _productRepository.GetProducts().Where(p => p.Tags.Contains(productTag)).ToList<Product>();
-
+            var productList = _productRepository.GetAll().Where(p => p.Tags.Contains(productTag)).ToList<Product>();
             return productList;
         }
 
-        public IEnumerable<Product> GetAllProducts()
+        public List<Product> GetAll()
         {
-            return _productRepository.GetProducts();
+            return _productRepository.GetAll();
+        }
+
+        public Product GetById(int id)
+        {
+            return _productRepository.GetById(id);
+        }
+
+        public void Create(Product p)
+        {
+            _productRepository.Create(p);
+        }
+
+        public void Update(Product p)
+        {
+            _productRepository.Update(p);
+        }
+
+        public void Delete(int id)
+        {
+            _productRepository.Delete(id);
         }
     }
 }
