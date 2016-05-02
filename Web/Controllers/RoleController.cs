@@ -7,35 +7,37 @@ using System.Web.Http;
 
 namespace Web.Controllers
 {
-    [Authorize]
-    public class ValuesController : ApiController
+    [Authorize(Roles = "Admin")]
+    public class RoleController : ApiController
     {
-        // GET api/values
-        [Authorize(Roles = "Admin")]
+        // GET: api/Role
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            throw new NotImplementedException();
         }
 
-        // GET api/values/5
+        // GET: api/Role/5
         public string Get(int id)
         {
-            return "value";
+            throw new NotImplementedException();
         }
 
-        // POST api/values
+        // POST: api/Role
         public void Post([FromBody]string value)
         {
+            throw new NotImplementedException();
         }
 
-        // PUT api/values/5
+        // PUT: api/Role/5
         public void Put(int id, [FromBody]string value)
         {
+            throw new NotImplementedException();
         }
 
-        // DELETE api/values/5
+        // DELETE: api/Role/5
         public void Delete(int id)
         {
+            throw new NotImplementedException();
         }
     }
 }
