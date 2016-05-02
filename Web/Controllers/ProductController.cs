@@ -13,38 +13,44 @@ namespace Web.Controllers
     {
         
         
-        private ProductService _productService;
+        private readonly ProductService _productService;
 
         public ProductController(ProductService productService )
         {
             this._productService = productService;
         }
         // GET: api/Product
-        public IEnumerable<Product> GetAll()
+        public List<Product> GetAll()
         {
            
-            return _productService.GetAllProducts();
+            return _productService.GetAll();
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return _productService.GetById(id);
         }
 
         // POST: api/Product
         public void Post([FromBody]string value)
         {
+            //TODO : implement
+            throw new NotImplementedException();
         }
 
         // PUT: api/Product/5
         public void Put(int id, [FromBody]string value)
         {
+            //TODO : implement
+            throw new NotImplementedException();
+
         }
 
         // DELETE: api/Product/5
         public void Delete(int id)
         {
+            _productService.Delete(id);
         }
     }
 }
