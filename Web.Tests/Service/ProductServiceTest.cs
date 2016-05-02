@@ -37,13 +37,13 @@ namespace Web.Tests.Service
             p4 = new Product { Id = 4, Name = "Rice Berry", Price = 70.00, Description = "For Eat", Thumbnail = "AaAA564.com", Tags = new List<string> { "Edible" }, Amount = 40 };
             p5 = new Product { Id = 5, Name = "Pan", Price = 500.00, Description = "For Use", Thumbnail = "Pan.com", Tags = new List<string> { "Usable" }, Amount = 70 };
             productRepository = new Mock<IProductRepository>();
-            productRepository.Setup(repository => repository.GetProducts()).Returns(new List<Product>{p1});
+            productRepository.Setup(repository => repository.GetAll()).Returns(new List<Product>{p1});
         }
 
         [Test]
         public void SearchProductbyName()
         {
-             ProductService service = new ProductService(productRepository.Object);
+             var service = new ProductService(productRepository.Object);
              Assert.AreEqual(new List<Product> {p1}, service.SearchProductbyName("Rice"));
 
         }
@@ -51,7 +51,7 @@ namespace Web.Tests.Service
         [Test]
         public void SearchProductByTag()
         {
-            ProductService service = new ProductService(productRepository.Object);
+            var service = new ProductService(productRepository.Object);
             Assert.AreEqual(new List<Product> {p1}, service.SearchProductByTag("Edible"));
         }
 
