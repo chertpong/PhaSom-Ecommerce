@@ -11,7 +11,7 @@ using Model.Repository;
 using Model.Service;
 using Moq;
 using Assert = NUnit.Framework.Assert;
-
+using CollectionAssert = NUnit.Framework.CollectionAssert;
 
 
 namespace Web.Tests.Service
@@ -45,6 +45,9 @@ namespace Web.Tests.Service
         {
              ProductService service = new ProductService(productRepository.Object);
              Assert.AreEqual(new List<Product> {p1}, service.SearchProductbyName("Rice"));
+             //Assert.AreEqual(new List<Product> { p1,p4 }, service.SearchProductbyName("R"));
+             //Assert.AreEqual(new List<Product> {p1,p2,p3,p4,p5}, service.SearchProductbyName(""));
+             //Assert.AreEqual(new List<Product> {} , service.SearchProductbyName("yong")  );
 
         }
 
@@ -52,7 +55,11 @@ namespace Web.Tests.Service
         public void SearchProductByTag()
         {
             ProductService service = new ProductService(productRepository.Object);
-            Assert.AreEqual(new List<Product> {p1}, service.SearchProductByTag("Edible"));
+            //CollectionAssert.Contains(new List<Product> {p1}, service.SearchProductByTag("Edible"));
+            CollectionAssert.AreEqual(new List<Product> {p1,p3,p4}, service.SearchProductByTag("Edible"));
+           // CollectionAssert.Contains(new List<Product> { p5 }, service.SearchProductByTag("Usable"));
+            //CollectionAssert.AreEqual(new List<Product> { p2,p5 }, service.SearchProductByTag("Usable"));
+           
         }
 
 
