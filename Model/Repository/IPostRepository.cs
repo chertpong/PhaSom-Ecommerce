@@ -13,6 +13,6 @@ namespace Model.Repository
         void UpdatePost(Post post);
         void DeletePost(int id);
 
-        List<Post> Find(Expression<Func<Post, bool>> predicate)
+        List<Post> Find(Expression<Func<Post, bool>> predicate);
     }
 }
