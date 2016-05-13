@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.Entity
 {
-    class Post
+    public class Post
     {
         public int Id { get; set; }
         public string title { get; set; }
@@ -16,5 +16,6 @@ namespace Model.Entity
         public List<string> Pictures { get; set; }
         public DateTime UpdatedTime { get; set; }
         public DateTime CreatedTime { get; set; }
+        public int Priority { get; set; }
     }
 }
