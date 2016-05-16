@@ -7,6 +7,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Web.Models;
+
 
 namespace Web
 {
@@ -44,6 +46,9 @@ namespace Web
 
             // Change the types of async postback blocks that are localized
             //i18n.LocalizedApplication.Current.AsyncPostbackTypesToTranslate = "updatePanel,scriptStartupBlock,pageTitle";
+
+            GlobalConfiguration.Configuration.Filters.Add(
+    new MyExceptionFilter());
 
         }
     }

@@ -4,11 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Filters;
 using Model.Repository;
 using Model.Entity;
 using Model.Service;
+using Web.Models;
+
 namespace Web.Controllers
 {
+    [MyExceptionFilter]
     public class ProductController : ApiController
     {
         
@@ -31,9 +35,11 @@ namespace Web.Controllers
         {
             if (_productService.GetById(id) == null)
             {
-                var message = string.Format("Product with id = {0} not found", id);
-                throw new HttpResponseException(
-                    Request.CreateErrorResponse(HttpStatusCode.NotFound, message));
+                {
+                    var message = string.Format("Product with id = {0} not found", id);
+                    throw new HttpResponseException(
+                        Request.CreateErrorResponse(HttpStatusCode.NotFound, message));
+                }
             }
             return _productService.GetById(id);
         }
@@ -42,6 +48,7 @@ namespace Web.Controllers
         public void Post(Product product)
         {
              _productService.Create(product);
+
         }
 
         // PUT: api/Product/5

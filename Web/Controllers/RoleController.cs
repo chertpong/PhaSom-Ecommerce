@@ -13,8 +13,10 @@ using Web.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Web.Infrastructure;
 
+
 namespace Web.Controllers
 {
+    [MyExceptionFilter]
     [Authorize(Roles = "Admin")]
     public class RoleController : ApiController
     {

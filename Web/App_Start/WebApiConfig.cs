@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Headers;
+using Web.Models;
 
 namespace Web
 {
@@ -35,6 +36,9 @@ namespace Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new MyExceptionFilter());
+
         }
     }
 }

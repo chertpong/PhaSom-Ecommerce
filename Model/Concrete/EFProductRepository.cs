@@ -28,7 +28,7 @@ namespace Model.Concrete
 
         public Product GetById(int id)
         {
-            return _context.Products.First(p => p.Id.Equals(id));
+            return _context.Products.Find(id);
         }
 
         public void Create(Product product)
