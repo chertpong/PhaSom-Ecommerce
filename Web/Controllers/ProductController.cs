@@ -5,10 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Filters;
+using Model.Dto;
 using Model.Repository;
 using Model.Entity;
 using Model.Service;
+using Ninject.Infrastructure.Language;
 using Web.Models;
+using Web.Response;
 
 namespace Web.Controllers
 {
@@ -45,9 +48,18 @@ namespace Web.Controllers
         }
 
         // POST: api/Product
-        public void Post(Product product)
+        [HttpPost]
+        public dynamic Post(ProductDto product)
         {
-             _productService.Create(product);
+            if (!ModelState.IsValid)
+            {
+                var allErrors = ModelState.Values.SelectMany(v => v.Errors);
+                var error = new ErrorMessageResult {Field = "Name", Message = "Name is required"};
+                var errorList = new List<ErrorMessageResult> {error};
+                return Request.CreateResponse(HttpStatusCode.BadRequest, errorList);
+            }
+             _productService.Create(product.GetProduct());
+            return Request.CreateResponse(HttpStatusCode.OK, new SuccessResponse {Message="Success"} );
 
         }
 
