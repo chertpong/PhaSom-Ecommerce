@@ -22,21 +22,26 @@ namespace Web.Controllers
         // GET: api/Product
         public List<Product> GetAll()
         {
-           
-            return _productService.GetAll();
+            
+             return _productService.GetAll();
         }
 
         // GET: api/Product/5
         public Product Get(int id)
         {
+            if (_productService.GetById(id) == null)
+            {
+                var message = string.Format("Product with id = {0} not found", id);
+                throw new HttpResponseException(
+                    Request.CreateErrorResponse(HttpStatusCode.NotFound, message));
+            }
             return _productService.GetById(id);
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        public void Post(Product product)
         {
-            //TODO : implement
-            throw new NotImplementedException();
+             _productService.Create(product);
         }
 
         // PUT: api/Product/5
