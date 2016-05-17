@@ -21,22 +21,22 @@ namespace Model.Service
 
         public Post GetById(int Id)
         {
-            return _postRepository.GetPostById(Id);
+            return _postRepository.GetById(Id);
         }
 
         public void CreatePost(Post post)
         {
-            _postRepository.CreatePost(post);
+            _postRepository.Create(post);
         }
 
         public void UpdatePost(Post post)
         {
-            _postRepository.UpdatePost(post);
+            _postRepository.Update(post);
         }
 
         public void DetelePost(int Id)
         {
-            _postRepository.DeletePost(Id);
+            _postRepository.Delete(Id);
         }
 
         public List<Post> SearchPostByTitle(string title)

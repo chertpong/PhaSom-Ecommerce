@@ -8,10 +8,10 @@ namespace Model.Repository
     public interface IPostRepository : IDisposable
     {
         List<Post> GetAll();
-        Post GetPostById(int id);
-        void CreatePost(Post post);
-        void UpdatePost(Post post);
-        void DeletePost(int id);
+        Post GetById(int id);
+        void Create(Post post);
+        void Update(Post post);
+        void Delete(int id);
 
         List<Post> Find(Expression<Func<Post, bool>> predicate);
     }

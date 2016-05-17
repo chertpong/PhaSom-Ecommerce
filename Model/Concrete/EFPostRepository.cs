@@ -2,52 +2,55 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using Model.Entity;
 using Model.Repository;
-using  Model.Concrete;
 
 namespace Model.Concrete
 {
-    
-    public class EFProductRepository : IProductRepository, IDisposable
+    public class EFPostRepository : IPostRepository, IDisposable
     {
         private readonly EFDbContext _context;
         private bool _disposed;
-        public EFProductRepository(EFDbContext context)
+
+        public EFPostRepository(EFDbContext context)
         {
             this._context = context;
             this._disposed = false;
         }
 
-        public List<Product> GetAll()
+        public List<Post> GetAll()
         {
-            return _context.Products.ToList();
+            return _context.Posts.ToList();
         }
 
-        public Product GetById(int id)
+        public Post GetById(int id)
         {
-            return _context.Products.First(p => p.Id.Equals(id));
+            return _context.Posts.First(p => p.Id.Equals(id));
         }
 
-        public void Create(Product product)
+        public void Create(Post post)
         {
-            _context.Products.Add(product);
+            _context.Posts.Add(post);
             _context.SaveChanges();
         }
 
-        public void Update(Product product)
+        public void Update(Post post)
         {
-            _context.Entry(product).State = EntityState.Modified;
+            _context.Entry(post).State = EntityState.Modified;
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var product = _context.Products.Find(id);
-            _context.Products.Remove(product);
+            var post = _context.Posts.Find(id);
+            _context.Posts.Remove(post);
             _context.SaveChanges();
+        }
+
+        public List<Post> Find(Expression<Func<Post, bool>> predicate)
+        {
+            return _context.Posts.Where(predicate.Compile()).ToList();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -61,8 +64,6 @@ namespace Model.Concrete
             }
             this._disposed = true;
         }
-
-        
 
         public void Dispose()
         {
