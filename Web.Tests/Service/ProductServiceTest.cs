@@ -97,6 +97,14 @@ namespace Web.Tests.Service
             service.Update(p3);
             productRepository.Verify(p => p.Update(p3));
         }
+
+        public void DeleteProduct()
+        {
+            var service = new ProductService(productRepository.Object);
+            service.Delete(4);
+            productRepository.Verify(p => p.Delete(4));
+        }
+
     }
 }
 
