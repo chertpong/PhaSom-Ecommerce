@@ -46,7 +46,7 @@ namespace Web.Tests.Service
         public void SearchProductbyName()
         {
             var service = new ProductService(productRepository.Object);
-            CollectionAssert.AreEqual(new List<Product> { p1, p4 }, service.SearchProductbyName("Rice"));
+            CollectionAssert.AreEqual(new List<Product> { p1,p4}, service.SearchProductbyName("Rice"));
             CollectionAssert.AreEqual(new List<Product> { p1, p4 }, service.SearchProductbyName("R"));
             CollectionAssert.AreEqual(new List<Product> { p1, p2, p3, p4, p5 }, service.SearchProductbyName(""));
             CollectionAssert.AreEqual(new List<Product> { }, service.SearchProductbyName("yong"));
@@ -58,8 +58,8 @@ namespace Web.Tests.Service
         {
             var service = new ProductService(productRepository.Object);
             //CollectionAssert.Contains(new List<Product> { p1 }, service.SearchProductByTag("Edible"));
-            //CollectionAssert.AreEqual(new List<Product> { p1, p3, p4 }, service.SearchProductByTag("Edible"));
-            //CollectionAssert.Contains(new List<Product> { p5 }, service.SearchProductByTag("Usable"));
+            CollectionAssert.AreEqual(new List<Product> { p1, p3, p4 }, service.SearchProductByTag("Edible"));
+           // CollectionAssert.Contains(new List<Product> { p5 }, service.SearchProductByTag("Usable"));
             CollectionAssert.AreEqual(new List<Product> { p2, p5 }, service.SearchProductByTag("Usable"));
         }
 
@@ -105,6 +105,11 @@ namespace Web.Tests.Service
             productRepository.Verify(p => p.Delete(4));
         }
 
+        public void GetAllProduct()
+        {
+            var service = new ProductService(productRepository.Object);
+            productRepository.Verify(p => p.GetAll());
+        }
     }
 }
 
