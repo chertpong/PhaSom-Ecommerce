@@ -67,11 +67,36 @@ namespace Web.Tests.Service
         public void CreateProductShouldPass()
         {
             var service = new ProductService(productRepository.Object);
-            Product p6 = new Product { Name = "Garlic", Price = 60.00, Description = "Raw material for cook.", Thumbnail = "Garlic.com", Tags = new List<string> { "Edible" }, Amount = 60 };
+            Product p6 = new Product
+            {
+                Name = "Garlic",
+                Price = 60.00,
+                Description = "Raw material for cook.",
+                Thumbnail = "Garlic.com",
+                Tags = new List<string> { "Edible" },
+                Amount = 60
+            };
             service.Create(p6);
             productRepository.Verify(p => p.Create(p6));
         }
 
 
+        [Test]
+        public void UpdateProductShouldPass()
+        {
+            var service = new ProductService(productRepository.Object);
+            p3 = new Product
+            {
+                Name = "Garlic",
+                Price = 700.00,
+                Description = "Raw material for cook.",
+                Thumbnail = "Garlic.com",
+                Tags = new List<string> { "Edible" },
+                Amount = 60
+            };
+            service.Update(p3);
+            productRepository.Verify(p => p.Update(p3));
+        }
     }
 }
+
