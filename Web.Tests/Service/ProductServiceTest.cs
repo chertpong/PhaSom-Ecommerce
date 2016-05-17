@@ -33,13 +33,28 @@ namespace Web.Tests.Service
         [SetUp]
         public void SetupMock()
         {
-            p1 = new Product { Id = 1, Name = "Rice", Price = 30.00, Description = "For Eat", Thumbnail = "Abc1234.com", Tags = new List<string> { "Edible" }, Amount = 50 };
+            p1 = new Product { Id = 1, Name = "Rice", Price = 30.00, Description = "For Eat", Thumbnail = "Abc1234.com", Tags = new List<string> { "Edible" }, Amount = 60};
             p2 = new Product { Id = 2, Name = "Shampoo", Price = 60.00, Description = "For Use", Thumbnail = "AAA.com", Tags = new List<string> { "Usable" }, Amount = 50 };
             p3 = new Product { Id = 3, Name = "Coffee Bean", Price = 500.00, Description = "For Eat", Thumbnail = "DDD.com", Tags = new List<string> { "Edible" }, Amount = 60 };
             p4 = new Product { Id = 4, Name = "Rice Berry", Price = 70.00, Description = "For Eat", Thumbnail = "AaAA564.com", Tags = new List<string> { "Edible" }, Amount = 40 };
             p5 = new Product { Id = 5, Name = "Pan", Price = 500.00, Description = "For Use", Thumbnail = "Pan.com", Tags = new List<string> { "Usable" }, Amount = 70 };
             productRepository = new Mock<IProductRepository>();
             productRepository.Setup(repository => repository.GetAll()).Returns(new List<Product> { p1, p2, p3, p4, p5 });
+        }
+
+        [Test]
+        public void GetAllProduct()
+        {
+            var service = new ProductService(productRepository.Object);
+            service.GetAll();
+            productRepository.Verify(p => p.GetAll());
+        }
+
+        [Test]
+        public void TestGetProductByID()
+        {
+            var service = new ProductService(productRepository.Object);
+            Assert.AreEqual(p1, service.GetById(1));
         }
 
         [Test]
@@ -97,19 +112,14 @@ namespace Web.Tests.Service
             service.Update(p3);
             productRepository.Verify(p => p.Update(p3));
         }
-
+        [Test]
         public void DeleteProduct()
         {
             var service = new ProductService(productRepository.Object);
             service.Delete(4);
             productRepository.Verify(p => p.Delete(4));
         }
-
-        public void GetAllProduct()
-        {
-            var service = new ProductService(productRepository.Object);
-            productRepository.Verify(p => p.GetAll());
-        }
+        
     }
 }
 
