@@ -79,9 +79,11 @@
     <Compile Include="Concrete\EFPostRepository.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Dto\ShoppingCart.cs" />
+    <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\Post.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\SelectedProduct.cs" />
+    <Compile Include="Entity\Tag.cs" />
     <Compile Include="Migrations\201605020406017_AddProduct.cs" />
     <Compile Include="Migrations\201605020406017_AddProduct.Designer.cs">
       <DependentUpon>201605020406017_AddProduct.cs</DependentUpon>
