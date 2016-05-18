@@ -71,8 +71,15 @@ namespace Web.App_Start
         {
 
             kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>();
+
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
             kernel.Bind<ProductService>().To<ProductService>();
+            kernel.Bind<IPostRepository>().To<EFPostRepository>();
+            kernel.Bind<PostService>().To<PostService>();
+            kernel.Bind<ITagRepository>().To<EFTagRepository>();
+            kernel.Bind<TagService>().To<TagService>();
+            kernel.Bind<IOrderRepository>().To<EFOderRepository>();
+            kernel.Bind<OrderService>().To<OrderService>();
         }        
     }
 }
