@@ -78,7 +78,6 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFPostRepository.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
-    <Compile Include="Dto\ShoppingCart.cs" />
     <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\PaymentMethod.cs" />
     <Compile Include="Entity\Post.cs" />
