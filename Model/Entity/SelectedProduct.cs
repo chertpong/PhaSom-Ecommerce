@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Model.Entity
 {
- public  class SelectedProduct
+    public class SelectedProduct
     {
-     public int Id { get; set; }
-     public int Amount { get; set; }
-     public double Price { get; set; }
-     public Product Product { get; set; }
-     public double CalculatePrice { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public int Amount { get; set; }
+        public double Price { get; set; }
+        public Product Product { get; set; }
+        public double CalculatePrice { get; set; }
 
     }
 }
