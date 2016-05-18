@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace Model.Concrete
 {
-    class EFTagRepository : ITagRepository, IDisposable
+    public class EFTagRepository : ITagRepository, IDisposable
     {
         private readonly EFDbContext _context;
         private bool _disposed;

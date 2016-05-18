@@ -8,7 +8,7 @@ using Model.Repository;
 
 namespace Model.Concrete
 {
-    class EFOderRepository : IOrderRepository,IDisposable
+   public  class EFOderRepository : IOrderRepository,IDisposable
     {
         private readonly EFDbContext _context;
         private bool _disposed;
