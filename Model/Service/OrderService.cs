@@ -19,12 +19,12 @@ namespace Model.Service
 
         public void Create(Order o)
         {
-            throw new NotImplementedException();
+            _orderRepository.Create(o);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _orderRepository.Delete(id);
         }
 
         
@@ -36,17 +36,17 @@ namespace Model.Service
 
         public List<Order> GetAll()
         {
-            throw new NotImplementedException();
+            return _orderRepository.GetAll();
         }
 
         public Order GetById(int id)
         {
-            throw new NotImplementedException();
+            return _orderRepository.GetById(id);
         }
 
         public void Update(Order o)
         {
-            throw new NotImplementedException();
+            _orderRepository.Update(o);
         }
 
        public List<Order> GetAllFrom(DateTime startDate)
