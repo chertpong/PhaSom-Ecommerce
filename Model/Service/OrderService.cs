@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.Dto;
 using Model.Entity;
 using Model.Repository;
 
@@ -60,7 +59,7 @@ namespace Model.Service
             throw new NotImplementedException();
         }
 
-       public Order MakeOrder(ShoppingCart shoppingCart,string userId,TransportationType transportationType,Payment payment,string note)
+       public Order MakeOrder(List<SelectedProduct> selectedProducts ,string userId,TransportationType transportationType,Payment payment,string note)
        {
             throw new NotImplementedException();
         }
