@@ -16,6 +16,8 @@ namespace Model.Concrete
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Order> Orders{ get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

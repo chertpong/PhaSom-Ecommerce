@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -337,6 +339,29 @@ namespace Web.Controllers
                 return GetErrorResult(result);
             }
 
+            {
+                System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+                         new System.Net.Mail.MailAddress("kantclrx@gmail.com", "Web Registration"),
+                         new System.Net.Mail.MailAddress(user.Email));
+                m.Subject = "Email confirmation";
+                m.Body = string.Format("hello");/*,
+                    user.UserName, Url.Action("ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));*/
+                m.IsBodyHtml = true;
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("kantclrx@gmail.com", "094800678")
+                };
+
+                smtp.EnableSsl = true;
+                smtp.Send(m);
+
+
+            }
             return Ok();
         }
 
