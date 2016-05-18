@@ -30,11 +30,11 @@ namespace Model.Migrations
             //    );
             //
             context.Products.AddOrUpdate(p => p.Name,
-                new Product { Name = "Rice", Price = 30.00, Description = "For Eat", Thumbnail = "Abc1234.com", Tags = new List<string> { "Edible" }, Amount = 50 },
-                new Product { Name = "Shampoo", Price = 60.00, Description = "For Use", Thumbnail = "AAA.com", Tags = new List<string> { "Usable" }, Amount = 50 },
-                new Product { Name = "Coffee Bean", Price = 500.00, Description = "For Eat", Thumbnail = "DDD.com", Tags = new List<string> { "Edible" }, Amount = 60 },
-                new Product { Name = "Rice Berry", Price = 70.00, Description = "For Eat", Thumbnail = "AaAA564.com", Tags = new List<string> { "Edible" }, Amount = 40 },
-                new Product { Name = "Pan", Price = 500.00, Description = "For Use", Thumbnail = "Pan.com", Tags = new List<string> { "Usable" }, Amount = 70 }
+                new Product { Name = "Rice", Price = 30.00, Description = "For Eat", Thumbnail = "http://culturalhealthsolutions.com/wp-content/uploads/2015/09/rice.jpg", Tags = new List<string> { "Edible" }, Amount = 50 },
+                new Product { Name = "Shampoo", Price = 60.00, Description = "For Use", Thumbnail = "http://ecx.images-amazon.com/images/I/81UIfFxHSKL._SL1500_.jpg", Tags = new List<string> { "Usable" }, Amount = 50 },
+                new Product { Name = "Coffee Bean", Price = 500.00, Description = "For Eat", Thumbnail = "http://www.drterlep.com/wp-content/uploads/cup-of-coffee.jpg", Tags = new List<string> { "Edible" }, Amount = 60 },
+                new Product { Name = "Rice Berry", Price = 70.00, Description = "For Eat", Thumbnail = "http://mom.girlstalkinsmack.com/image/122012/21/173837834.jpg", Tags = new List<string> { "Edible" }, Amount = 40 },
+                new Product { Name = "Pan", Price = 500.00, Description = "For Use", Thumbnail = "http://pngimg.com/upload/frying_pan_PNG8347.png", Tags = new List<string> { "Usable" }, Amount = 70 }
             );
         }
     }
