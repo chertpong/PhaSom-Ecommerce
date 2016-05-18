@@ -17,7 +17,9 @@ namespace Model.Service
         {
             this._tagRepository = tagRepository;
         }
-        public List<Tag> SearchProductbyName(string tagName)
+
+
+        public List<Tag> SearchTagsbyName(string tagName)
         {
             return _tagRepository.GetAll().Where(p => p.Name.Contains(tagName)).ToList<Tag>();
         }
@@ -30,14 +32,14 @@ namespace Model.Service
             return _tagRepository.GetById(id);
         }
 
-        public void Create(Tag p)
+        public void Create(Tag t)
         {
-            _tagRepository.Create(p);
+            _tagRepository.Create(t);
         }
 
-        public void Update(Tag p)
+        public void Update(Tag t)
         {
-            _tagRepository.Update(p);
+            _tagRepository.Update(t);
         }
 
         public void Delete(int id)
