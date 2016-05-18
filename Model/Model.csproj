@@ -81,7 +81,7 @@
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Concrete\EFTagRepository.cs" />
     <Compile Include="Entity\Order.cs" />
-    <Compile Include="Entity\PaymentMethod.cs" />
+    <Compile Include="Entity\Payment.cs" />
     <Compile Include="Entity\Post.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\SelectedProduct.cs" />
