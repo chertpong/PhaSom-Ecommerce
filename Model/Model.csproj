@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201605151948326_AddPost.Designer.cs">
       <DependentUpon>201605151948326_AddPost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605190429580_update-shopping-cart.cs" />
+    <Compile Include="Migrations\201605190429580_update-shopping-cart.Designer.cs">
+      <DependentUpon>201605190429580_update-shopping-cart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IOrderRepository.cs" />
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605151948326_AddPost.resx">
       <DependentUpon>201605151948326_AddPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605190429580_update-shopping-cart.resx">
+      <DependentUpon>201605190429580_update-shopping-cart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
